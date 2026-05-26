@@ -103,23 +103,9 @@ UPDATEVERSION() {
 }
 
 #UPDATE_VERSION "软件包名" "测试版，true，可选，默认为否"
-#UPDATEVERSION "sing-box"
+UPDATEVERSION "sing-box"
 
 #引入私有扩展脚本
 if [ -f "$GITHUB_WORKSPACE/Scripts/PRIVATE.sh" ]; then
  source "$GITHUB_WORKSPACE/Scripts/PRIVATE.sh"
 fi
-
-# #删除官方的默认插件
-rm -rf ../feeds/luci/applications/luci-app-{passwall*,mosdns,dockerman,dae*,bypass*}
-rm -rf ../feeds/packages/net/{dae*}
-#rm -rf ../feeds/packages/net/{v2ray-geodata,dae*}
-
-# #修改字体
-# # argon_css_file=$(find ./luci-theme-argon/ -type f -name "cascade.css")
-# # sed -i "/^.main .main-left .nav li a {/,/^}/ { /font-weight: bolder/d }" $argon_css_file
-# # sed -i '/^\[data-page="admin-system-opkg"\] #maincontent>.container {/,/}/ s/font-weight: 600;/font-weight: normal;/' $argon_css_file
-
-# #修复daed/Makefile
-# # rm -rf luci-app-daed/daed/Makefile && cp -r $GITHUB_WORKSPACE/patches/daed/Makefile luci-app-daed/daed/
-# # cat luci-app-daed/daed/Makefile
