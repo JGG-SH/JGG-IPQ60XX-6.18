@@ -53,13 +53,13 @@ UPDATE_PACKAGE "easytier" "EasyTier/luci-app-easytier" "main"
 UPDATE_PACKAGE "openlist2" "sbwml/luci-app-openlist2" "main"
 UPDATE_PACKAGE "luci-app-homer" "JGG-SH/LuCI-APP-Homer" "main"
 UPDATE_PACKAGE "luci-app-dae" "QiuSimons/luci-app-dae" "kix"
+UPDATE_PACKAGE "passwall" "Openwrt-Passwall/openwrt-passwall" "main" "pkg"
 
 ## lucky 直接git clone，不用 UPDATE_PACKAGE，- 直接克隆到 package/lucky
 git clone --depth=1 https://github.com/gdy666/luci-app-lucky.git lucky
 
 #暂不编译（等待需求）
 #UPDATE_PACKAGE "luci-app-pushbot" "zzsj0928/luci-app-pushbot" "master"
-#UPDATE_PACKAGE "passwall" "Openwrt-Passwall/openwrt-passwall" "main" "pkg"
 
 #更新软件包版本
 UPDATEVERSION() {
