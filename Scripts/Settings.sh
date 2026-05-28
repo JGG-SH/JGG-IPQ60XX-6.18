@@ -74,3 +74,13 @@ if [[ "${WRT_TARGET^^}" == *"QUALCOMMAX"* ]]; then
 		echo "qualcommax set up nowifi successfully!"
 	fi
 fi
+
+#亚瑟修复USB2.0日志报错问题
+if grep -q "CONFIG_TARGET_DEVICE_QUALCOMMAX_IPQ60XX_DEVICE_JDCLOUD_RE_SS_01=y" .config 2>/dev/null; then
+    echo "Applying DTS patch for JDCLOUD RE-SS-01..."
+    wget -qO - https://github.com/davidtall/immortalwrt/commit/ce39feb4.patch | patch -p1
+    echo "Verifying DTS file..."
+    cat ./target/linux/qualcommax/dts/ipq6000-re-ss-01.dts
+else
+    echo "Not re-ss-01 device, skipping DTS patch."
+fi
