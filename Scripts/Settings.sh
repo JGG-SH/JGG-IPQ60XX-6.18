@@ -67,6 +67,7 @@ if [[ "${WRT_TARGET^^}" == *"QUALCOMMAX"* ]]; then
 	echo "CONFIG_NSS_FIRMWARE_VERSION_12_5=y" >> ./.config
 	#其他调整
 	echo "CONFIG_PACKAGE_kmod-usb-serial-qualcomm=y" >> ./.config
+fi
 
 #无WIFI配置调整Q6大小
 if [[ "${WRT_CONFIG,,}" == *"wifi"* && "${WRT_CONFIG,,}" == *"no"* ]]; then
