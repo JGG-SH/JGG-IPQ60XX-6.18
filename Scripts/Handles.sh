@@ -13,6 +13,29 @@ if [ -d *"luci-theme-argon"* ]; then
 	cd $PKG_PATH && echo "theme-argon has been fixed!"
 fi
 
+# ===== 修复 Rust 编译失败（easytier/tailscale/qbittorrent 依赖）=====
+RUST_FILE=$(find ../feeds/packages/ -maxdepth 3 -type f -wholename "*/rust/Makefile")
+if [ -f "$RUST_FILE" ]; then
+    sed -i 's/ci-llvm=true/ci-llvm=false/g' $RUST_FILE
+fi
+
+# ===== 修复 TailScale 配置冲突 =====
+TS_FILE=$(find ../feeds/packages/ -maxdepth 3 -type f -wholename "*/tailscale/Makefile")
+if [ -f "$TS_FILE" ]; then
+    sed -i '/\/files/d' $TS_FILE
+fi
+
+# ===== 修复 NSS 启动顺序（Handles.sh 来源）=====
+NSS_DRV="../feeds/nss_packages/qca-nss-drv/files/qca-nss-drv.init"
+if [ -f "$NSS_DRV" ]; then
+    sed -i 's/START=.*/START=85/g' $NSS_DRV
+fi
+NSS_PBUF="./kernel/mac80211/files/qca-nss-pbuf.init"
+if [ -f "$NSS_PBUF" ]; then
+    sed -i 's/START=.*/START=86/g' $NSS_PBUF
+fi
+
+
 #修改mini-diskmanager菜单位置
 if [ -d *"luci-app-mini-diskmanager"* ]; then
 	echo " " && cd ./luci-app-mini-diskmanager/
