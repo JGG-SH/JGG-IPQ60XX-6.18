@@ -16,10 +16,11 @@ CONFIG_PACKAGE_luci-app-ttyd=y
 CONFIG_PACKAGE_luci-app-autoreboot=y
 CONFIG_PACKAGE_luci-app-homer=y
 
-## ===== VoHive插件源码+LuCI+依赖驱动 =====
+## ===== VoHive插件源码+LuCI+依赖驱动 含高通专属=====
 CONFIG_PACKAGE_luci-app-vohive=y
 CONFIG_PACKAGE_vohive-core-arm64=y
 CONFIG_PACKAGE_kmod-usb-serial-option=y
+CONFIG_PACKAGE_kmod-usb-serial-qualcomm=y
 # --- SOCAT：VoHive通过串口控制模块的通道工具 ---
 CONFIG_PACKAGE_socat=y
 # --- QMI依赖驱动三选一（标准版、移远版、广和通）---
@@ -31,9 +32,10 @@ CONFIG_PACKAGE_socat=y
 CONFIG_PACKAGE_uqmi=y
 # EC20/EC25 MBIM 支持，本地已有则跳过
 CONFIG_PACKAGE_kmod-usb-net-cdc-mbim=y
-## ======================================
+## ===============================================
 
-
+## ===== 高通/NSS 专项 =====
+CONFIG_NSS_FIRMWARE_VERSION_12_5=y
 
 
 
