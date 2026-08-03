@@ -37,26 +37,7 @@ CONFIG_PACKAGE_kmod-usb-net-cdc-mbim=y
 ## ===== 高通/NSS 专项 =====
 CONFIG_NSS_FIRMWARE_VERSION_12_5=y
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-##主题插件
+## 主题插件
 CONFIG_PACKAGE_luci-theme-argon=y
 CONFIG_PACKAGE_luci-app-argon-config=y
 
