@@ -1,21 +1,63 @@
-#科学插件调整
-#CONFIG_PACKAGE_luci-app-passwall=y
-CONFIG_PACKAGE_luci-app-openclash=y
+## 科学插件调整
+CONFIG_PACKAGE_luci-app-passwall=y
+#CONFIG_PACKAGE_luci-app-openclash=y
 #CONFIG_PACKAGE_luci-app-upnp=y
 #CONFIG_PACKAGE_luci-i18n-upnp-zh-cn=y
-#增加插件
-CONFIG_PACKAGE_luci-app-autoreboot=y
+
+## 基础插件
 CONFIG_PACKAGE_luci-app-samba4=y
-#CONFIG_PACKAGE_luci-app-openlist2=y
-#CONFIG_PACKAGE_luci-app-tailscale=y
-#CONFIG_PACKAGE_luci-app-easytier=y
-#CONFIG_PACKAGE_luci-app-lucky=y
+CONFIG_PACKAGE_luci-app-openlist2=y
+CONFIG_PACKAGE_luci-app-tailscale=y
+CONFIG_PACKAGE_luci-app-easytier=y
+CONFIG_PACKAGE_luci-app-lucky=y
 CONFIG_PACKAGE_luci-app-ramfree=y
 CONFIG_PACKAGE_luci-app-filemanager=y
 CONFIG_PACKAGE_luci-app-ttyd=y
+CONFIG_PACKAGE_luci-app-autoreboot=y
+CONFIG_PACKAGE_luci-app-homer=y
+
+## ===== VoHive插件源码+LuCI+依赖驱动 =====
+CONFIG_PACKAGE_luci-app-vohive=y
+CONFIG_PACKAGE_vohive-core-arm64=y
+CONFIG_PACKAGE_kmod-usb-serial-option=y
+# --- SOCAT：VoHive通过串口控制模块的通道工具 ---
+CONFIG_PACKAGE_socat=y
+# --- QMI依赖驱动三选一（标准版、移远版、广和通）---
+#CONFIG_PACKAGE_kmod-usb-net-qmi-wwan=y
+#CONFIG_PACKAGE_kmod-usb-net-qmi-wwan-quectel=y
+#CONFIG_PACKAGE_kmod-usb-net-qmi-wwan-fibocom=y
+# 若本地 GENERAL.txt 没有下面这些，按需补（本地大多已有，仅核对）：
+# --- UQMI：用户态命令行工具,发 QMI 指令 ---
+CONFIG_PACKAGE_uqmi=y
+# EC20/EC25 MBIM 支持，本地已有则跳过
+CONFIG_PACKAGE_kmod-usb-net-cdc-mbim=y
+## ======================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##主题插件
 CONFIG_PACKAGE_luci-theme-argon=y
 CONFIG_PACKAGE_luci-app-argon-config=y
-#CONFIG_PACKAGE_luci-app-homer=y
+
 #删除插件
 CONFIG_PACKAGE_dockerd=n
 CONFIG_PACKAGE_docker=n
