@@ -18,7 +18,7 @@ CONFIG_PACKAGE_luci-app-homer=y
 
 ## ===== VoCat插件源码+LuCI+依赖驱动 含高通专属=====
 CONFIG_PACKAGE_luci-app-vocat=y
-CONFIG_PACKAGE_cat-core-arm64=y
+CONFIG_PACKAGE_vocat-core-arm64=y
 CONFIG_PACKAGE_kmod-usb-serial-option=y
 CONFIG_PACKAGE_kmod-usb-serial-qualcomm=y
 # --- SOCAT：VoHive通过串口控制模块的通道工具（VoCat不需要） ---
