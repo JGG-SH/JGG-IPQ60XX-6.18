@@ -59,11 +59,11 @@ fi
 
 # ===== VoHive：修复 vohive-core Makefile 的 CONFLICTS 循环依赖 =====
 # 单架构(arm64)编译时，删除其他架构的冲突声明，避免 kconfig 误报冲突
-if [ -d "./package/luci-app-vohive/vohive-core" ]; then
-	sed -i '/CONFLICTS:=.*vohive-core-arm64/d' ./package/luci-app-vohive/vohive-core/Makefile
-	sed -i '/CONFLICTS:=.*vohive-core-amd64/d' ./package/luci-app-vohive/vohive-core/Makefile
-	sed -i '/CONFLICTS:=.*vohive-core-armv7/d' ./package/luci-app-vohive/vohive-core/Makefile
-fi
+#if [ -d "./package/luci-app-vohive/vohive-core" ]; then
+#	sed -i '/CONFLICTS:=.*vohive-core-arm64/d' ./package/luci-app-vohive/vohive-core/Makefile
+#	sed -i '/CONFLICTS:=.*vohive-core-amd64/d' ./package/luci-app-vohive/vohive-core/Makefile
+#	sed -i '/CONFLICTS:=.*vohive-core-armv7/d' ./package/luci-app-vohive/vohive-core/Makefile
+#fi
 
 #高通平台调整
 DTS_PATH="./target/linux/qualcommax/dts/"
